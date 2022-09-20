@@ -21,8 +21,8 @@ const getConfig = ({ insertSpaces, tabSize }) => ({
 
 const format = (text, config) => {
 	text = sqlFormatter.format(text, config);
-	const reg = / @ *\n*/gu;
-	return text.replace(reg, "\n@\n");
+	const reg = /\n\t* *@ *\n*/gu;
+	return text.replace(reg, "\n@\n").trim();
 };
 
 module.exports.activate = () =>
